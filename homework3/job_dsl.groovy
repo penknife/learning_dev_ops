@@ -1,7 +1,8 @@
 def project = "learning_dev_ops"
+def username = "penknife"
 job('homework4:docker ngnix') {
     scm {
-        github("penknife/${project}", "https")
+        github("${username}/${project}", "https")
         branch('${BRANCH_NAME')
     }
     wrappers {
@@ -9,9 +10,9 @@ job('homework4:docker ngnix') {
     }
     steps {
         def build_docker_image = '''#!/bin/bash +x 
-        cd homework4
+        cd homework3
         docker build -t ngnix_custon_htmt:latest . 
-        docker login -u "gabrieldeoliveiraest" -p "password" docker.io
+        docker login -u "${username}" -p "${DOCKERHUB_PASSWORD}" docker.io
         docker push penknife/ngnix_custon_htmt:latest
         '''.stripIndent()
 

@@ -8,4 +8,4 @@ RUN apk update && \
 VOLUME /git
 WORKDIR /git
 
-ENTRYPOINT ["git"]
+RUN git clone https://github.com/penknife/learning_dev_ops.git
