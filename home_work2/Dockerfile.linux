@@ -5,7 +5,7 @@ RUN apk update && \
     apk upgrade && \
     apk add git less openssh
     
-VOLUME /git
-WORKDIR /git
+VOLUME /data
+WORKDIR /data
 
 RUN git clone https://github.com/penknife/learning_dev_ops.git
